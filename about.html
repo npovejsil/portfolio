@@ -1,10 +1,76 @@
 <!DOCTYPE html>
+<!--
+  About page — portfolio_v2
+  Design reference: cargo.site/templates/preview/3438135
+  macOS-style frosted window modal over desktop icon grid.
+-->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About — Portfolio v2</title>
-  <link rel="stylesheet" href="css/main.css?v=3">
+  <link rel="stylesheet" href="css/main.css?v=15">
+  <style>
+    /* ---- Timeline entry separators ---- */
+    body.about .window bodycopy .timeline-entry {
+      border-top: 1px solid rgba(255,255,255,0.22);
+      padding-top: 1rem;
+      margin-top: 0.9rem;
+    }
+    body.about .window bodycopy .timeline-entry:first-child {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+    body.about .window bodycopy .timeline-date {
+      display: block;
+      color: rgba(255,255,255,0.35) !important;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2rem;
+    }
+    /* Company name — primary line */
+    body.about .window bodycopy .timeline-org {
+      display: block;
+      color: rgba(255,255,255,0.9) !important;
+      font-weight: 600;
+    }
+    /* Role — secondary line */
+    body.about .window bodycopy .timeline-role {
+      display: block;
+      color: rgba(255,255,255,0.55) !important;
+      font-weight: 400;
+    }
+    body.about .window bodycopy .timeline-meta {
+      display: block;
+      color: rgba(255,255,255,0.35) !important;
+      font-size: 0.88rem;
+      margin-top: 0.2rem;
+      line-height: 1.4;
+    }
+
+    /* ---- Mobile: stack label + content vertically ---- */
+    @media (max-width: 680px) {
+      body.about section.page.about-modal > .page-layout {
+        max-width: 100%;
+        padding: 4rem 0.75rem 3rem 0.75rem;
+      }
+      body.about .window {
+        width: 100%;
+        border-radius: 0.8rem;
+        padding: 0.75rem 0.85rem 1rem;
+      }
+      body.about column-set {
+        flex-direction: column;
+      }
+      body.about .window > bodycopy > column-set > column-unit:first-child {
+        width: auto;
+        flex-basis: auto;
+        margin-bottom: 0.2rem;
+      }
+    }
+  </style>
 </head>
 <body class="about">
 
@@ -14,22 +80,23 @@
       <div class="page-content">
         <bodycopy>
           <a class="window-title" href="index.html"></a>
-          <a href="index.html">Nora Povejsil</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html"><u>About</u></a>,
-          <a href="mailto:"><u>Email</u></a>,
-          <a href="#"><u>Instagram</u></a>
+          <a href="index.html">Nora Povejsil</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html"><u>About</u></a>, <a href="work.html"><u>Work</u></a>,
+          <a href="mailto:npovejsil@berkeley.edu"><u>Email</u></a>,
+          <a href="https://www.linkedin.com/in/nora-povejsil/" target="_blank" rel="noopener"><u>LinkedIn</u></a>,
+          <a href="blog.html"><u>Blog</u></a>
         </bodycopy>
       </div>
     </div>
   </nav>
 
-  <!-- Home icons rendered behind the window (the About modal feels like it opened over the desktop) -->
+  <!-- Home icons rendered behind the window -->
   <section class="page home-bg" aria-hidden="true">
     <div class="page-layout">
       <div class="page-content">
         <gallery-justify>
           <media-item><figure><span class="no-link"><img src="assets/hhd.png" alt=""></span><figcaption class="caption-light">Work</figcaption></figure></media-item>
-          <media-item><figure><span class="no-link"><img src="assets/about.svg" alt=""></span><figcaption class="caption-light">About me.rtf</figcaption></figure></media-item>
-          <media-item><figure><span class="no-link"><img src="assets/badge.png" alt="" class="badge-photo"></span><figcaption class="caption-light">badge.gif</figcaption></figure></media-item>
+          <media-item><figure><span class="no-link"><img src="assets/about.svg" alt=""></span><figcaption class="caption-light">About me</figcaption></figure></media-item>
+          <media-item><figure><span class="no-link"><img src="assets/badge.png" alt="" class="badge-photo"></span><figcaption class="caption-light">me.png</figcaption></figure></media-item>
         </gallery-justify>
       </div>
     </div>
@@ -52,85 +119,131 @@
           </div>
           <hr>
 
+          <!-- Location -->
+          <column-set>
+            <column-unit>
+              <span class="section-label">Location</span>
+            </column-unit>
+            <column-unit>
+              Brooklyn, NY
+            </column-unit>
+          </column-set>
+
+          <!-- Contact -->
           <column-set>
             <column-unit>
               <span class="section-label">Contact</span>
             </column-unit>
             <column-unit>
-              Nora Povejsil<br>
-              Brooklyn, NY<br>
               <a href="mailto:npovejsil@berkeley.edu"><u>npovejsil@berkeley.edu</u></a><br>
-              +1 (651) 285-9367
+              <a href="https://www.linkedin.com/in/nora-povejsil/" target="_blank" rel="noopener"><u>linkedin.com/in/nora-povejsil</u></a>
             </column-unit>
           </column-set>
 
+          <!-- Currently -->
           <column-set>
             <column-unit>
               <span class="section-label">Currently</span>
             </column-unit>
             <column-unit>
-              <strong>Data Scientist</strong>, <strong>SaferData Labs, Inc.</strong><br>
-              New York City, NY — Jul 2025–Present
-              <br><br>
-              MIT-founded early-stage ad tech startup. Architected a Dagster + dbt pipeline for 18M+ users, cutting runtime from 15+ hours to under 30 minutes. Lead quarter-million-dollar client engagements end-to-end across pipelines, modeling, and stakeholder comms. Built R&D models (MMM, pLTV) that benchmarked favorably against competitors and validated core product capabilities for investors. Shipped a test suite with quantitative assertions, establishing a performance baseline and catching critical regressions.
+              <div class="timeline-entry">
+                <div class="timeline-date">Jul 2025 – present</div>
+                <div class="timeline-org">SaferData Labs</div>
+                <div class="timeline-role">Data Scientist</div>
+                <div class="timeline-meta">New York City · ad tech startup · Bayesian modeling, privacy-safe analytics</div>
+              </div>
             </column-unit>
           </column-set>
 
-          <column-set>
-            <column-unit>
-              <span class="section-label">Education</span>
-            </column-unit>
-            <column-unit>
-              <strong>M.I.D.S.</strong>, School of Information<br>
-              <strong>University of California, Berkeley</strong><br>
-              2023&thinsp;–&thinsp;2024
-              <br><br>
-              <strong>B.A. Data Science</strong> &amp; <strong>B.A. Public Health</strong><br>
-              <strong>University of California, Berkeley</strong><br>
-              2019&thinsp;–&thinsp;2023
-              <br><br>
-              Coursework: Modern Data Applications, Applied Machine Learning, Data Visualization, Data Engineering, Econometrics, Time Series, Causal Inference, Statistics.
-            </column-unit>
-          </column-set>
-
+          <!-- Previously -->
           <column-set>
             <column-unit>
               <span class="section-label">Previously</span>
             </column-unit>
             <column-unit>
-              <strong>Contractor, Data Scientist</strong>; <strong>Global Optimism</strong>, London UK (Remote)<br>
-              Aug&thinsp;–&thinsp;Nov 2025
-              <br><br>
-              Climate media org. Built agentic Zapier workflows integrating CRM data with outreach and content creation pipelines for targeted campaigns. Translated technical data systems work into strategic recommendations, enabling leadership to launch new AI initiatives. Represented the organization at New York Climate Week.
-              <br><br>
-              <strong>Data Systems Analyst</strong> &amp; <strong>Environmental Data Science Intern</strong>; <strong>Symbrosia</strong>, Kona HI (Remote)<br>
-              Jan&thinsp;–&thinsp;Sept 2025
-              <br><br>
-              Seaweed tech for livestock methane. Conducted unit economics analysis and identified ~15% overhead reduction opportunities. Modeled methane emissions reductions from seaweed-fed cattle, contributing to ROI analyses used in investor pitches. Co-authored a peer-reviewed meta-analysis supporting regulatory approval pathways for carbon credit markets.
-              <br><br>
-              <strong>Data Science Fellow</strong>; <strong>DSSG Program, University of Washington</strong>, Seattle WA<br>
-              May&thinsp;–&thinsp;Sept 2024
-              <br><br>
-              Collaborated with the EPA &amp; The Water Research Foundation to help communities and policymakers identify water reuse opportunities. Presented findings to 125+ attendees in a webcast rated "Exceptional."
+              <div class="timeline-entry">
+                <div class="timeline-date">Aug – Nov 2025</div>
+                <div class="timeline-org"><a href="https://www.theclimatepledge.com/" target="_blank" rel="noopener"><u>Global Optimism</u></a></div>
+                <div class="timeline-role">Contractor, Data Scientist</div>
+                <div class="timeline-meta">London (Remote) · climate media org</div>
+              </div>
+
+              <div class="timeline-entry">
+                <div class="timeline-date">Jan – Sep 2025</div>
+                <div class="timeline-org"><a href="https://symbrosia.co/" target="_blank" rel="noopener"><u>Symbrosia</u></a></div>
+                <div class="timeline-role">Data Systems Analyst &amp; Env. Data Science Intern</div>
+                <div class="timeline-meta">Kona, HI (Remote) · seaweed methane mitigation · co-authored peer-reviewed publication</div>
+              </div>
+
+              <div class="timeline-entry">
+                <div class="timeline-date">Jun – Aug 2024</div>
+                <div class="timeline-org"><a href="https://escience.washington.edu/using-data-science/data-science-for-social-good/dssg-projects/" target="_blank" rel="noopener"><u>DSSG, University of Washington</u></a></div>
+                <div class="timeline-role">Data Science Fellow</div>
+                <div class="timeline-meta">Seattle, WA · EPA &amp; Water Research Foundation · GeoNdxR open-source tool</div>
+              </div>
+
+              <div class="timeline-entry">
+                <div class="timeline-date">May – Aug 2022</div>
+                <div class="timeline-org"><a href="https://www.smartypants.nyc/" target="_blank" rel="noopener"><u>Smartypants</u></a></div>
+                <div class="timeline-role">Intern</div>
+                <div class="timeline-meta">Brooklyn, NY · film &amp; documentary · <a href="https://www.strangeratthegate.com/watch-the-film" target="_blank" rel="noopener"><u>Oscar-nominated premiere</u></a> at Tribeca Film Festival</div>
+              </div>
+
+              <div class="timeline-entry">
+                <div class="timeline-date">Jan – Oct 2021</div>
+                <div class="timeline-org"><a href="https://ib.berkeley.edu/labs/power/" target="_blank" rel="noopener"><u>UC Berkeley, Mary E. Power Lab</u></a></div>
+                <div class="timeline-role">Research Assistant, Machine Learning</div>
+                <div class="timeline-meta">Berkeley, CA · aquatic ecology · ML models for fish ID; 300% sampling throughput increase</div>
+              </div>
+
+              <div class="timeline-entry">
+                <div class="timeline-date">May 2019</div>
+                <div class="timeline-org">Hennepin County Medical Center</div>
+                <div class="timeline-role">Medical Assistant (Intern)</div>
+                <div class="timeline-meta">Minneapolis, MN · OBGYN &amp; Midwifery</div>
+              </div>
             </column-unit>
           </column-set>
 
+          <!-- Education -->
+          <column-set>
+            <column-unit>
+              <span class="section-label">Education</span>
+            </column-unit>
+            <column-unit>
+              <div class="timeline-entry">
+                <div class="timeline-date">2023 – 2024</div>
+                <div class="timeline-org"><a href="https://www.ischool.berkeley.edu/" target="_blank" rel="noopener"><u>UC Berkeley School of Information</u></a></div>
+                <div class="timeline-role">M.I.D.S. — Master of Information and Data Science</div>
+              </div>
+
+              <div class="timeline-entry">
+                <div class="timeline-date">2019 – 2023</div>
+                <div class="timeline-org"><a href="https://ls.berkeley.edu/" target="_blank" rel="noopener"><u>UC Berkeley</u></a></div>
+                <div class="timeline-role">B.A. Data Science &amp; B.A. Public Health</div>
+                <div class="timeline-meta">Double major · study abroad at <a href="https://www.kcl.ac.uk/about" target="_blank" rel="noopener"><u>King's College London</u></a></div>
+              </div>
+            </column-unit>
+          </column-set>
+
+          <!-- Technical -->
           <column-set>
             <column-unit>
               <span class="section-label">Technical</span>
             </column-unit>
             <column-unit>
-              <em>Languages</em>: Python, SQL, R<br><br>
-              <em>Stack</em>: Git · Claude Code · AWS · GCP · DuckDB · MotherDuck · BigQuery · Dagster · dbt · Tableau · Observable (D3) · Altair · Jupyter
+              <em>Languages</em>: Python · SQL · R<br><br>
+              <em>Stack</em>: AWS · GCP · DuckDB · BigQuery · Dagster · dbt · Tableau · Altair · Claude Code · Git
             </column-unit>
           </column-set>
 
+          <!-- Resume -->
           <column-set>
             <column-unit>
-              <span class="section-label">Selected work</span>
+              <span class="section-label">Resume</span>
             </column-unit>
             <column-unit>
-              <a href="work.html"><u>Click here for selected work&nbsp;→</u></a>
+              <a href="uploads/N.Povejsil_Resume.pdf" target="_blank" rel="noopener"><u>N.Povejsil_Resume.pdf&nbsp;↗</u></a>
             </column-unit>
           </column-set>
 
