@@ -319,13 +319,13 @@ body.work {
 /* ---------- Work index + dotted-sheet entries ---------- */
 .work-shell {
   display: grid;
-  grid-template-columns: minmax(16rem, 20rem) 1fr;
+  grid-template-columns: minmax(20rem, 26rem) minmax(0, 58rem);
   gap: 2.2rem;
   padding: 3.2rem 1.5rem 3rem 1.5rem;
   align-items: start;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
