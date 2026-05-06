@@ -1,4 +1,4 @@
-# portfolio_v2
+# portfolio
 
 HTML/CSS personal site. No framework, no build step.
 
