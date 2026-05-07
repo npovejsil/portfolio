@@ -1314,6 +1314,7 @@ body.about .window {
 body.about .window bodycopy {
   display: block;
   width: 100%;
+  font-size: 1.18rem;
 }
 
 body.about .traffic-lights {
@@ -1393,7 +1394,8 @@ body.about column-unit column-set > column-unit {
 }
 
 body.about .section-label {
-  color: var(--text-1);
+  color: var(--text-3);
+  font-weight: 400;
 }
 
 /* -------------------------------------------------------------------------

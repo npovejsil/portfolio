@@ -36,6 +36,11 @@
       color: rgba(255,255,255,0.9) !important;
       font-weight: 600;
     }
+    body.about .window bodycopy .timeline-org a,
+    body.about .window bodycopy .timeline-role a,
+    body.about .window bodycopy .timeline-meta a {
+      color: inherit !important;
+    }
     /* Role — secondary line */
     body.about .window bodycopy .timeline-role {
       display: block;
@@ -66,11 +71,22 @@
       }
       body.about column-set {
         flex-direction: column;
+        margin-top: 1.4rem;
+      }
+      body.about column-set:first-of-type {
+        margin-top: 0.6rem;
       }
       body.about .window > bodycopy > column-set > column-unit:first-child {
         width: auto;
         flex-basis: auto;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.3rem;
+      }
+      body.about .section-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.5;
+        font-weight: 400;
       }
     }
   </style>
