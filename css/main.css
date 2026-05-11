@@ -321,7 +321,7 @@ body.work {
   display: grid;
   grid-template-columns: minmax(20rem, 26rem) minmax(0, 58rem);
   gap: 2.2rem;
-  padding: 3.2rem 1.5rem 3rem 1.5rem;
+  padding: 4.4rem 1.5rem 3rem 1.5rem;
   align-items: start;
   box-sizing: border-box;
   width: 100%;
