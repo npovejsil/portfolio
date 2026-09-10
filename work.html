@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  Work page — portfolio
+  Landing page — portfolio (the site root; there is no separate home page)
   Layout reference: cargo.site/templates/preview/3438135
   Sticky index + dotted-paper document cards.
   Design inspiration: Cargo M401, Readymag archival layouts.
@@ -9,8 +9,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Work | Portfolio</title>
-  <link rel="stylesheet" href="css/main.css?v=16">
+  <title>Nora Povejsil | Portfolio</title>
+  <link rel="stylesheet" href="css/main.css?v=97">
 </head>
 <body class="work">
 
@@ -20,7 +20,7 @@
       <div class="page-content">
         <bodycopy>
           <a class="window-title" href="index.html"></a>
-          <a href="index.html">Nora Povejsil</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html"><u>About</u></a>, <a href="work.html"><u>Work</u></a>,
+          <a class="nav-name" href="index.html">Nora Povejsil</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="about.html"><u>About</u></a>, <a href="work.html"><u>Work</u></a>,
           <a href="mailto:npovejsil@berkeley.edu"><u>Email</u></a>,
           <a href="https://www.linkedin.com/in/nora-povejsil/" target="_blank" rel="noopener"><u>LinkedIn</u></a>,
           <a href="blog.html"><u>Blog</u></a>
@@ -32,84 +32,93 @@
   <section class="work-shell">
 
     <aside class="work-index">
-      <h1 class="work-index-title">NORA<br>POVEJSIL</h1>
+      <a class="work-index-head" href="about.html">
+        <img class="work-index-photo" src="assets/portrait.jpg" alt="Nora Povejsil">
+        <h1 class="work-index-title">NORA<br>POVEJSIL</h1>
+      </a>
 
       <div class="work-index-address">
         Data Scientist<br>
         Brooklyn, NY
       </div>
 
+      <p class="work-index-bio">
+        Nora is a data and AI professional with a deep passion for sustainability and human health. She has experience across academic research, open source software projects, and startups. Outside of work, she loves to ride her bike, oil paint, and read, among a variety of other highly niche and interesting hobbies.
+      </p>
+
       <table class="work-index-table">
         <thead>
           <tr>
-            <th>Selected work</th>
+            <th>Highlighted work</th>
             <th>Type</th>
             <th>Yr</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><span class="num">04</span><a href="#portfolio">Portfolio</a></td>
+            <td><a href="#portfolio">Portfolio</a></td>
             <td>Web</td>
             <td>2026</td>
           </tr>
           <tr>
-            <td><span class="num">03</span><a href="#asparagopsis">Asparagopsis</a></td>
+            <td><a href="#seaweed">Seaweed</a></td>
             <td>Paper</td>
             <td>2026</td>
           </tr>
           <tr>
-            <td><span class="num">02</span><a href="#hydroscale">HydroScale</a></td>
+            <td><a href="#hydroscale">HydroScale</a></td>
             <td>Capstone</td>
             <td>2024</td>
           </tr>
           <tr>
-            <td><span class="num">01</span><a href="#geondxr">GeoNdxR</a></td>
+            <td><a href="#geondxr">GeoNdxR</a></td>
             <td>Open Source</td>
             <td>2024</td>
           </tr>
         </tbody>
-        <thead>
-          <tr>
-            <th>Academic finals</th>
+        <tbody>
+          <!-- Second section header. Kept inside this table (a second table head
+               would be invalid HTML) so both blocks share column widths. -->
+          <tr class="work-index-subhead">
+            <th>Academic projects</th>
             <th>Course</th>
             <th>Yr</th>
           </tr>
-        </thead>
+        </tbody>
         <tbody>
           <tr>
-            <td><span class="num">A7</span><a href="#wildfire">Wildfire</a></td>
+            <td><a href="#wildfire">Wildfire prediction</a></td>
             <td>Applied ML</td>
             <td>2024</td>
           </tr>
           <tr>
-            <td><span class="num">A6</span><a href="#wrangling">Wrangling 3P Sales</a></td>
-            <td>Data Eng.</td>
+            <td><a href="#wrangling">Wrangling Sales Data</a></td>
+            <td>Data Engineering.</td>
             <td>2023</td>
           </tr>
           <tr>
-            <td><span class="num">A5</span><a href="#cancer-histopath">Cancer Histopath.</a></td>
-            <td>ML Biomed</td>
+            <td><a href="#cancer-histopath">Cancer Histopathology</a></td>
+            <td>ML for Biomedical Applications</td>
             <td>2023</td>
           </tr>
           <tr>
-            <td><span class="num">A4</span><a href="#ai-culture">Predictive Policing</a></td>
-            <td>King's</td>
+            <td><a href="#ai-culture">Predictive Policing</a></td>
+            <td>AI, Culture & Society</td>
             <td>2023</td>
           </tr>
           <tr>
-            <td><span class="num">A3</span><a href="#empire-env">Tropical Medicine</a></td>
-            <td>King's</td>
+            <td><a href="#empire-env">Malaria in Latin America</a></td>
+            <td>Empire, Environment & Development</td>
             <td>2022</td>
           </tr>
           <tr>
-            <td><span class="num">A2</span><a href="#methyl-mercury">Methyl Mercury</a></td>
-            <td>Env. Health</td>
+            <td><a href="#methyl-mercury">Methyl Mercury Poisoning</a></td>
+            <td>Environmental Health</td>
             <td>2022</td>
           </tr>
           <tr>
-            <td><span class="num">A1</span><a href="#napa-land-use">Napa Land Use</a></td>
-            <td>Env. Econ.</td>
+            <td><a href="#napa-land-use">Napa Land Use</a></td>
+            <td>Environmental Economics.</td>
             <td>2020</td>
           </tr>
         </tbody>
@@ -121,54 +130,37 @@
 
       <!-- 04 — Portfolio -->
       <article id="portfolio" class="work-entry">
-        <header class="work-entry-head">
-          <span class="num">04</span>
-          <span class="title">Portfolio</span>
-          <span class="type">Type: Web</span>
-          <span class="id">2026</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">This site!</div>
               <div class="sheet-doc-head">Portfolio</div>
               <div class="sheet-doc-links">
                 <a href="https://github.com/npovejsil/portfolio" target="_blank" rel="noopener">↗ Source on GitHub</a>
               </div>
               <div class="sheet-doc-body">
-                <p>From-scratch vibe-coded portfolio with HTML &amp; CSS.</p>
-                <p><strong>Stack:</strong> GitHub Pages · Claude Code · HTML/CSS</p>
+                <p>From-scratch portfolio with HTML, JavaScript &amp; CSS.</p>
+                <p><strong>Stack:</strong> GitHub Pages · Claude Code · HTML/CSS/JavaScript</p>
               </div>
-              <div class="sheet-doc-footer"><span>Personal project</span><span>Page 04 / 04</span></div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 03 — Asparagopsis -->
-      <article id="asparagopsis" class="work-entry">
-        <header class="work-entry-head">
-          <span class="num">03</span>
-          <span class="title">Asparagopsis Meta-Analysis</span>
-          <span class="type">Type: Paper</span>
-          <span class="id">BMC Agri. 2(4) / 2026</span>
-        </header>
+      <!-- 03 — Seaweed -->
+      <article id="seaweed" class="work-entry">
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. 03.a — Meta-analysis</div>
-              <div class="sheet-doc-head">Asparagopsis<sup style="font-size:0.45em;vertical-align:super;">*</sup></div>
+              <div class="sheet-doc-head">Seaweed<sup style="font-size:0.45em;vertical-align:super;">*</sup></div>
               <div class="sheet-doc-links">
                 <a href="https://doi.org/10.1186/s44399-025-00030-w" target="_blank" rel="noopener">↗ Read full paper — BMC Agriculture</a>
               </div>
               <div class="sheet-doc-body">
                 <div class="sheet-callout">
-                  <strong>📄 Citation:</strong> Goloja, C., Povejsil, N., Roque, B.M. <em>et al.</em> A meta-analysis establishes bromoform dose and forage-based models to evaluate the antimethanogenic effects of <em>Asparagopsis</em> spp. feed additive. <em>BMC Agric.</em> <strong>2</strong>, 4 (2026). https://doi.org/10.1186/s44399-025-00030-w
+                  <strong> Citation:</strong> Goloja, C., Povejsil, N., Roque, B.M. <em>et al.</em> A meta-analysis establishes bromoform dose and forage-based models to evaluate the antimethanogenic effects of <em>Asparagopsis</em> spp. feed additive. <em>BMC Agric.</em> <strong>2</strong>, 4 (2026). https://doi.org/10.1186/s44399-025-00030-w
                 </div>
-                <p><em>Asparagopsis</em> is a red seaweed that, when fed to cattle in small doses, dramatically reduces their methane emissions. This paper consolidates results from dozens of individual trials into dose-response and forage-adjusted models — work that directly supports regulatory approval pathways and carbon credit methodologies for the livestock industry.</p>
-                <p>Conducted during my time at Symbrosia, where I also contributed ROI analyses used in investor pitches and modeled emissions reductions for commercial deployment scenarios.</p>
+                <p><em>Asparagopsis</em> is a red seaweed that, when fed to cattle in small doses, dramatically reduces their methane emissions. This paper consolidates results from dozens of individual trials into dose-response models. This work directly supports regulatory approval pathways and carbon credit methodologies for the livestock industry.</p>
               </div>
-              <div class="sheet-doc-footer"><span>BMC Agri. 2(4)</span><span>Page 03 / 04</span></div>
             </div>
           </div>
         </div>
@@ -176,37 +168,29 @@
 
       <!-- 02 — HydroScale -->
       <article id="hydroscale" class="work-entry">
-        <header class="work-entry-head">
-          <span class="num">02</span>
-          <span class="title">HydroScale</span>
-          <span class="type">Type: Capstone</span>
-          <span class="id">UC Berkeley / MIDS / 2024</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. 02.a — Pipeline architecture</div>
               <div class="sheet-doc-head">HydroScale<sup style="font-size:0.45em;vertical-align:super;">*</sup></div>
               <div class="sheet-doc-links">
                 <a href="https://www.ischool.berkeley.edu/projects/2024/hydroscale" target="_blank" rel="noopener">↗ Full project — Berkeley I-School</a>
               </div>
               <div class="sheet-doc-body">
                 <div class="sheet-callout">
-                  🏆 <strong>5th Year MIDS Capstone Award</strong>
+                   <strong>5th Year MIDS Capstone Award</strong>
                 </div>
-                <p><em>Forecasting Water Usage Efficiency in Data Centers.</em> American data centers collectively consume about 300,000 gallons of water per day — roughly equal to 100,000 homes — and more than 20% withdraw water from medium to high stress watersheds. With AI driving a projected CAGR of 22% in global DC capacity (generative AI workloads alone: 39%), water requirements will strictly increase.</p>
+                <p><em>Forecasting Water Usage Efficiency in Data Centers.</em> In 2023, American data centers collectively consumed about 300,000 gallons of water per day, roughly equal to 100,000 homes. More than 20% of them withdrew water from medium to high stress watersheds. With AI driving a projected compound annual growth rate of 22% in global DC capacity, water requirements will strictly increase.</p>
                 <figure class="sheet-doc-img">
                   <img src="assets/hydroscale-wue-types.png" alt="Two types of data center water consumption: on-site (cooling towers) and off-site (power plant cooling). Source: Li et al., 2023.">
                   <figcaption>Two types of DC water consumption — on-site and off-site. Source: Li et al., 2023.</figcaption>
                 </figure>
-                <p>We developed HydroScale, a platform providing granular 72-hour ahead WUE forecasts across the United States. Leveraging weather, energy, and operational data, it delivers on-site forecasts tailored to individual data centers and off-site forecasts considering broader regional factors — geospatial estimates of <em>where</em> water usage will be most efficient, enabling geographic load balancing and job scheduling.</p>
+                <p>We developed HydroScale, a platform providing granular 72-hour ahead WUE (Water Usage Effectiveness) forecasts across the United States. Leveraging weather, energy, and operational data, it delivers on-site forecasts tailored to individual data centers and off-site forecasts considering broader regional factors, such as geospatial estimates of <em>where</em> water usage will be most efficient to enable geographic load balancing and job scheduling.</p>
                 <figure class="sheet-doc-img">
                   <img src="assets/hydroscale-architecture.png" alt="HydroScale pipeline: AWS S3+EC2 ingestion → Spark preprocessing → SageMaker forecast models → Flask dashboard.">
                   <figcaption>Pipeline: AWS S3 + EC2 → Spark / EMR → SageMaker on-site &amp; off-site models → Flask dashboard.</figcaption>
                 </figure>
                 <p><strong>Tags:</strong> Python · Data Engineering · Machine Learning · GIS · Transfer Learning</p>
               </div>
-              <div class="sheet-doc-footer"><span>UC Berkeley / MIDS Capstone</span><span>Page 02 / 04</span></div>
             </div>
           </div>
         </div>
@@ -214,16 +198,9 @@
 
       <!-- 01 — GeoNdxR -->
       <article id="geondxr" class="work-entry">
-        <header class="work-entry-head">
-          <span class="num">01</span>
-          <span class="title">GeoNdxR: Indexing Water Reuse &amp; Beyond</span>
-          <span class="type">Type: Open Source</span>
-          <span class="id">UW eScience / DSSG / EPA / WRF · 2024</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. 01.a — Water Reuse Potential Index, U.S. water service boundaries</div>
               <div class="sheet-doc-head">GeoNdxR<sup style="font-size:0.45em;vertical-align:super;">*</sup></div>
               <div class="sheet-doc-links">
                 <a href="https://uwescience.github.io/WaterReuseDSSG2024/" target="_blank" rel="noopener">↗ DSSG project site</a>
@@ -231,18 +208,14 @@
                 <a href="https://github.com/uwescience/WaterReuseDSSG2024" target="_blank" rel="noopener">↗ GitHub</a>
               </div>
               <div class="sheet-doc-body">
-                <p><em>Open-source GIS tool for environmental indices.</em> Water reuse — defined by the EPA as "the practice of reclaiming water from a variety of sources, treating it, and reusing it for beneficial purposes" — is too often seen only as a solution for water-scarce areas, rather than for its full potential to lower flood risk, reduce sewer overflows, and minimize nutrient discharge.</p>
-                <p><code>geondxr</code> is a low-code R tool that uses <a href="https://docs.r-wasm.org/webr/latest/" target="_blank" rel="noopener">WebR</a> to run index re-calculation and interactive mapping <strong>directly in the user's browser</strong> — no server needed, free to host on GitHub Pages. Index creators preprocess data, calculate the index, and ship it as a single <code>.html</code> file.</p>
+                <p><em>Open-source GIS tool for environmental indices.</em> Water reuse, defined by the EPA as "the practice of reclaiming water from a variety of sources, treating it, and reusing it for beneficial purposes," is too often seen only as a solution for water-scarce areas, rather than for its full potential, including lowering flood risk, reducing sewer overflows, and minimizing nutrient discharge.</p>
+                <p><code>geondxr</code> is a low-code R tool that uses <a href="https://docs.r-wasm.org/webr/latest/" target="_blank" rel="noopener">WebR</a> to run index re-calculation and interactive mapping <strong>directly in the user's browser</strong> — no server needed, free to host on GitHub Pages. Index creators use our open source R project to preprocess data, calculate the index, and ship it as a single <code>.html</code> file.</p>
                 <figure class="sheet-doc-img">
                   <img src="assets/geondxr-index-map.png" alt="Water Reuse Potential Index displayed on a map of the United States at the water service boundary level, built with GeoNdxR.">
                   <figcaption>Water Reuse Potential Index across U.S. water service boundaries — built with GeoNdxR. <a href="https://chayek.github.io/Water-Reuse-Drivers-Index/" target="_blank" rel="noopener">View live ↗</a></figcaption>
                 </figure>
-                <div class="sheet-callout">
-                  <em>📝 Aug 2024: This project is based on The Water Research Foundation (WRF) project 5197, funded under Assistance Agreement No. 84046201 awarded by the U.S. Environmental Protection Agency (EPA) to WRF. The views expressed are solely those of the authors and do not necessarily reflect those of WRF or EPA.</em>
-                </div>
                 <p><strong>Tags:</strong> R · GIS · Statistics · Web Dev · Visualization</p>
               </div>
-              <div class="sheet-doc-footer"><span>UW eScience / DSSG</span><span>Page 01 / 04</span></div>
             </div>
           </div>
         </div>
@@ -257,16 +230,9 @@
 
       <!-- A7 — Wildfire -->
       <article id="wildfire" class="work-entry academic">
-        <header class="work-entry-head">
-          <span class="num">A7</span>
-          <span class="title">Wildfire Prediction from Satellite Imagery in Canada</span>
-          <span class="type">Course: Applied Machine Learning</span>
-          <span class="id">UC Berkeley / MIDS / 2024</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. A7.a — Image augmentation and modeling pipeline</div>
               <div class="sheet-doc-head">Wildfire Prediction</div>
               <div class="sheet-doc-links">
                 <a href="https://github.com/MarlonFu/wildfire-prediction" target="_blank" rel="noopener">↗ GitHub</a>
@@ -278,17 +244,16 @@
                   <img src="assets/wildfire-pipeline.png" alt="Methodology diagram showing the image augmentation and modeling pipeline for wildfire prediction.">
                   <figcaption>Image augmentation and modeling pipeline.</figcaption>
                 </figure>
-                <p>Augmented the public dataset of Canadian pre-wildfire and no-wildfire labelled aerial images to build a classification system. Trained and compared several supervised deep learning models against classical methods on unseen test data.</p>
+                <p>Augmented the public dataset of Canadian pre-wildfire and no-wildfire labelled aerial images to build a classification system. Trained and compared several supervised deep learning models against classical methods on unseen test data to assess wildfire prediction accuracy.</p>
                 <figure class="sheet-doc-img">
                   <img src="assets/wildfire-data.png" alt="Example images from the Canadian wildfire satellite image dataset showing pre-wildfire and no-wildfire labelled samples.">
                   <figcaption>Example images from the satellite dataset.</figcaption>
                 </figure>
                 <div class="sheet-callout">
-                  <strong>Results:</strong> Top model — Gradient Boost Classifier — achieved <strong>~96% test accuracy</strong> and F2 Beta Score of 0.97. All models exceeded 90% accuracy on this binary classification task.
+                  <strong>Results:</strong> Top model — Gradient Boost Classifier — achieved <strong>~96% test accuracy</strong> and F2 Beta Score of 0.97. All models exceeded 90% accuracy on this binary classification task. Surfaced potential bias in the dataset due to a disproportionate number of urban photos labled as "no wildfire," meaning the models may have been picking up on that, rather than differences in vegetation visible in the photos. 
                 </div>
                 <p><strong>Tags:</strong> Computer Vision · Python · Machine Learning · Remote Sensing · Transfer Learning</p>
               </div>
-              <div class="sheet-doc-footer"><span>Applied ML</span><span>Final</span></div>
             </div>
           </div>
         </div>
@@ -296,16 +261,9 @@
 
       <!-- A6 — Wrangling 3rd-Party Sales -->
       <article id="wrangling" class="work-entry academic">
-        <header class="work-entry-head">
-          <span class="num">A6</span>
-          <span class="title">Wrangling 3rd-Party Sales Data (Subscription Meal Delivery)</span>
-          <span class="type">Course: Data Engineering</span>
-          <span class="id">UC Berkeley / MIDS / 2023</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. A6.a — BART system knowledge graph for pickup routing</div>
               <div class="sheet-doc-head">Wrangling 3rd-Party Sales</div>
               <div class="sheet-doc-links">
                 <a href="uploads/data-wrangling-slides.pdf" target="_blank" rel="noopener">↗ Final presentation (PDF)</a>
@@ -321,7 +279,6 @@
                 </div>
                 <p><strong>Tags:</strong> Data Engineering · SQL · Python · GIS</p>
               </div>
-              <div class="sheet-doc-footer"><span>Data Engineering</span><span>Final</span></div>
             </div>
           </div>
         </div>
@@ -329,34 +286,22 @@
 
       <!-- A5 — Detecting Cancer from Histopathological Images -->
       <article id="cancer-histopath" class="work-entry academic">
-        <header class="work-entry-head">
-          <span class="num">A5</span>
-          <span class="title">Detecting Cancer from Histopathological Images</span>
-          <span class="type">Course: ML for Biomedical Applications</span>
-          <span class="id">UC Berkeley / 2023</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. A5.a — CNN architecture and validation accuracy</div>
               <div class="sheet-doc-head">Detecting Cancer from Histopathological Images</div>
               <div class="sheet-doc-body">
-                <p>Given vast numbers of histopathological images and diminishing medical staff worldwide, can neural networks reliably detect cancer and be integrated into radiologists' workflow? This project tests a basic CNN on a binary cancer/no-cancer classification task on labelled images.</p>
+                <p>Given vast numbers of histopathological images and diminishing medical staff worldwide, can neural networks reliably detect cancer and be integrated into radiologists' workflow? This project tests a CNN on a binary classification task on labelled images.</p>
                 <figure class="sheet-doc-img">
                   <img src="assets/cancer-histopath-data.png" alt="Example histopathological image data with cancer/no-cancer labels from the PatchCamelyon dataset.">
                   <figcaption>Example labelled images from the dataset. (<a href="https://github.com/basveeling/pcam" target="_blank" rel="noopener">PatchCamelyon ↗</a>)</figcaption>
                 </figure>
                 <p>Implemented a two-layer CNN (16 and 32 filters, kernel size 5) with two fully-connected layers in PyTorch. Optimized with SGD and cross-entropy loss over 50 epochs.</p>
-                <figure class="sheet-doc-img">
-                  <img src="assets/cancer-accuracy.png" alt="Validation accuracy across training epochs, plateauing at approximately 80%.">
-                  <figcaption>Validation accuracy across training epochs — plateaued at ~80%.</figcaption>
-                </figure>
                 <div class="sheet-callout">
                   Minimizing <strong>false negatives</strong> is critical here — the stakes for a missed cancer diagnosis are higher than for a mistaken one. Further augmentation or architecture changes could push accuracy higher.
                 </div>
                 <p><strong>Tags:</strong> Machine Learning · Computer Vision · Python · Deep Learning</p>
               </div>
-              <div class="sheet-doc-footer"><span>ML Biomedical</span><span>Final</span></div>
             </div>
           </div>
         </div>
@@ -364,22 +309,15 @@
 
       <!-- A4 — AI, Culture & Society (Predictive Policing) -->
       <article id="ai-culture" class="work-entry academic">
-        <header class="work-entry-head">
-          <span class="num">A4</span>
-          <span class="title">Algorithmic Governance &amp; Predictive Policing (U.S. &amp; China)</span>
-          <span class="type">Paper — AI, Culture &amp; Society</span>
-          <span class="id">King's College London / 2023</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. A4.a — Academic final paper</div>
               <div class="sheet-doc-head">Algorithmic Governance &amp; Predictive Policing</div>
               <div class="sheet-doc-links">
                 <a href="uploads/predictive-policing-report.pdf" target="_blank" rel="noopener">↗ Full report (PDF)</a>
               </div>
               <div class="sheet-doc-body">
-                <p>This report focuses on predictive policing — the practice of using algorithms to anticipate criminal activity before it occurs. Two case studies: U.S. company PredPol and Chinese company Megvii. Each illustrates the ethical issues, public reception, and government regulation involved.</p>
+                <p>This report focuses on predictive policing, the practice of using algorithms to anticipate criminal activity before it occurs. Two case studies: U.S. company PredPol and Chinese company Megvii. Each illustrates the ethical issues, public reception, and government regulation involved.</p>
                 <figure class="sheet-doc-img">
                   <img src="assets/policing-report.png" alt="Excerpt from the predictive policing report comparing U.S. and Chinese regulatory contexts.">
                   <figcaption>Report excerpt comparing regulatory contexts.</figcaption>
@@ -387,7 +325,6 @@
                 <p>The report highlights how rapidly developing technical approaches have outpaced government regulation, and explores the social implications of increasingly technocratic law enforcement. Written for regulators exploring how cases have unfolded in two countries with contrasting ethical and regulatory standards.</p>
                 <p><strong>Tags:</strong> Research · Writing · Policy and Regulation · Governance · Machine Learning</p>
               </div>
-              <div class="sheet-doc-footer"><span>King's College London</span><span>Final</span></div>
             </div>
           </div>
         </div>
@@ -395,27 +332,19 @@
 
       <!-- A3 — Empire, Environment & Development (Malaria / Tropical Medicine) -->
       <article id="empire-env" class="work-entry academic">
-        <header class="work-entry-head">
-          <span class="num">A3</span>
-          <span class="title">Economic Development &amp; Malaria Control: British "Tropical Medicine" in Latin America and the Caribbean</span>
-          <span class="type">Paper — Empire, Environment &amp; Development</span>
-          <span class="id">King's College London / 2022</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. A3.a — Academic final paper</div>
               <div class="sheet-doc-head">Tropical Medicine &amp; Malaria Control</div>
               <div class="sheet-doc-links">
                 <a href="uploads/malaria-control-paper.pdf" target="_blank" rel="noopener">↗ Full paper (PDF)</a>
               </div>
               <div class="sheet-doc-body">
-                <p>Certain facets of human geography — migration, lack of social organisation, environmental degradation — are known to contribute to infectious disease prevalence. Yet Western public health instead looks towards medical intervention and disease-specific prevention to address the resulting epidemics after they have already spiralled out of control.</p>
-                <p>The prioritisation of downstream interventions stems in part from the imperial legacy of "tropical medicine," a medical speciality that originated as an arm of the British Empire whose purpose was to control diseases that inhibited expansion and productivity in their overseas extraction colonies. While today global health organisations tout the "human right to health," the economic metrics they use to quantify the potential impact of aid severely undermine the humanitarian sentiment.</p>
+                <p>Certain facets of human geography, such as migration, lack of social organization, and environmental degradation are known to contribute to infectious disease prevalence. Yet Western public health instead looks towards medical intervention and disease-specific prevention to address the resulting epidemics after they have already spiralled out of control.</p>
+                <p>The prioritization of downstream interventions stems in part from the imperial legacy of "tropical medicine," a medical speciality that originated as an arm of the British Empire whose purpose was to control diseases that inhibited expansion and productivity in their overseas extraction colonies. While today global health organizations tout the "human right to health," the economic metrics they use to quantify the potential impact of aid severely undermine the humanitarian sentiment.</p>
                 <p>This paper argues that the roots of the technology-based global health approach to malaria control today can be found in the British imperial legacy in Latin America and the Caribbean — a legacy that persists despite recent advances towards reducing the threat of malaria in the region.</p>
                 <p><strong>Tags:</strong> Research · Writing · Public Health · Epidemiology · Policy and Regulation</p>
               </div>
-              <div class="sheet-doc-footer"><span>King's College London</span><span>Final</span></div>
             </div>
           </div>
         </div>
@@ -423,16 +352,9 @@
 
       <!-- A2 — Methyl Mercury -->
       <article id="methyl-mercury" class="work-entry academic">
-        <header class="work-entry-head">
-          <span class="num">A2</span>
-          <span class="title">Methyl Mercury Poisoning &amp; Neurodevelopment of Children</span>
-          <span class="type">Course: Environmental Health Science</span>
-          <span class="id">UC Berkeley / 2022</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. A2.a — Academic final paper · <em>Summary below</em></div>
               <div class="sheet-doc-head">Methyl Mercury &amp; Child Neurodevelopment</div>
               <div class="sheet-doc-body">
                 <p><em>"The Effect of Methyl Mercury Poisoning Due to Fish Consumption on Neurodevelopment of Children."</em></p>
@@ -443,7 +365,6 @@
                 <p>This paper covers exposure assessment, toxicology, epidemiology (including the Minamata and Iraqi poisoning outbreaks), and risk management through the Minamata Convention, Clean Air Act, Clean Water Act, and EPA emission standards.</p>
                 <p><strong>Tags:</strong> Public Health · Policy and Regulation · Writing · Research · Epidemiology</p>
               </div>
-              <div class="sheet-doc-footer"><span>Env. Health Science</span><span>Final</span></div>
             </div>
           </div>
         </div>
@@ -451,24 +372,16 @@
 
       <!-- A1 — Napa Land Use -->
       <article id="napa-land-use" class="work-entry academic">
-        <header class="work-entry-head">
-          <span class="num">A1</span>
-          <span class="title">Land Use Permits in Napa Valley: An Environmental Economic Analysis</span>
-          <span class="type">Course: Environmental Economics</span>
-          <span class="id">UC Berkeley / 2020</span>
-        </header>
         <div class="work-entry-frame">
           <div class="work-entry-sheet">
             <div class="sheet-doc">
-              <div class="sheet-doc-sub">Fig. A1.a — Supply/demand and market structure models · <em>Summary below</em></div>
               <div class="sheet-doc-head">Land Use Permits in Napa Valley</div>
               <div class="sheet-doc-body">
                 <p>The Winery Definition Ordinance of 1990 amended Napa County Code to establish the "75% rule" (at least 75% locally grown grapes), set minimum parcel size requirements for new wineries, and aim to "reduce densities and thereby lessen local visual, traffic, air, noise, and groundwater impacts and reduce the conversion of viable agricultural land."</p>
-                <p>In this analysis, I apply supply and demand elasticity models to illustrate the dynamic between agricultural businesses and other potential land buyers. Because the government restricts land access through permits, land is both <strong>excludable</strong> and <strong>rival</strong>. I also examine how the ordinance shifted the market from near-perfect competition toward an oligopolistic structure — raising prices, reducing output, and pushing out small independent producers.</p>
-                <p>One key limitation: the negative externality model fails to account for harms from agriculture itself (soil erosion, pesticide pollution). The ordinance addresses urban and industrial development impacts but overlooks those from agricultural production.</p>
+                <p>In this analysis, I apply supply and demand elasticity models to illustrate the dynamic between agricultural businesses and other potential land buyers. Because the government restricts land access through permits, land is both <strong>excludable</strong> and <strong>rival</strong>. I also examine how the ordinance shifted the market from near-perfect competition toward an oligopolistic structure, which raised prices, reduced output, and pushed out small independent producers.</p>
+                <p>One key limitation: the negative externality model fails to account for harms from agriculture itself (e.g. soil erosion and pesticide pollution). The ordinance addresses urban and industrial development impacts but overlooks those from agricultural production.</p>
                 <p><strong>Tags:</strong> Policy and Regulation · Writing · Research</p>
               </div>
-              <div class="sheet-doc-footer"><span>Env. Economics</span><span>Final</span></div>
             </div>
           </div>
         </div>
@@ -488,6 +401,9 @@
       </div>
     </div>
   </footer>
+
+
+  <script src="js/site.js?v=2" defer></script>
 
 </body>
 </html>

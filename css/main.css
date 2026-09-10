@@ -8,18 +8,18 @@
    ------------------------------------------------------------------------- */
 :root {
   --base-size: 11.25px;
-  --bg-dark: #111111;
+  --bg-page: #111111;
   --bg-light: #F8F8F8;
 
-  --text-1: rgba(255, 255, 255, 0.85);
-  --text-2: rgba(255, 255, 255, 0.75);
-  --text-3: rgba(255, 255, 255, 0.6);
-  --text-4: rgba(255, 255, 255, 0.4);
-  --text-5: rgba(255, 255, 255, 0.25);
-  --text-near-white: rgba(255, 255, 255, 0.95);
+  --text-1: rgba(255, 255, 255, 0.90);
+  --text-2: rgba(255, 255, 255, 0.78);
+  --text-3: rgba(255, 255, 255, 0.62);
+  --text-4: rgba(255, 255, 255, 0.46);
+  --text-5: rgba(255, 255, 255, 0.26);
+  --text-strong: rgba(255, 255, 255, 1);
 
   --accent: #FF0000;
-  --hr: rgba(255, 255, 255, 0.15);
+  --hr: rgba(255, 255, 255, 0.16);
   --link-underline: rgba(127, 127, 127, 0.2);
 
   --mobile-scale: 1.4;
@@ -28,12 +28,12 @@
 }
 
 body {
-  --swatch-1: rgba(255, 255, 255, 0.85);
-  --swatch-2: rgba(255, 255, 255, 0.75);
-  --swatch-3: rgba(255, 255, 255, 0.6);
-  --swatch-4: rgba(255, 255, 255, 0.4);
-  --swatch-5: rgba(255, 255, 255, 0.25);
-  --swatch-6: rgba(255, 255, 255, 0.85);
+  --swatch-1: rgba(255, 255, 255, 0.90);
+  --swatch-2: rgba(255, 255, 255, 0.78);
+  --swatch-3: rgba(255, 255, 255, 0.62);
+  --swatch-4: rgba(255, 255, 255, 0.46);
+  --swatch-5: rgba(255, 255, 255, 0.26);
+  --swatch-6: rgba(255, 255, 255, 0.90);
 }
 
 /* -------------------------------------------------------------------------
@@ -47,7 +47,7 @@ html, body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-page);
 }
 
 body {
@@ -105,7 +105,7 @@ h2 {
   font-family: var(--font-stack);
   font-size: 1rem;
   font-weight: 450;
-  color: var(--text-near-white);
+  color: var(--text-strong);
   line-height: 1.25;
   letter-spacing: 0;
   display: inline-block;
@@ -115,7 +115,7 @@ h2 {
   font-family: var(--font-stack);
   font-size: 1rem;
   font-weight: 450;
-  color: var(--text-near-white);
+  color: var(--text-strong);
   line-height: 1.25;
   letter-spacing: 0;
   display: inline-block;
@@ -184,61 +184,44 @@ column-unit {
 }
 
 /* -------------------------------------------------------------------------
-   5. Global nav (fixed top, mix-blend-mode: difference)
+   4b. Blog — placeholder
    ------------------------------------------------------------------------- */
-.site-nav {
-  mix-blend-mode: difference;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: auto;
-  z-index: 9999;
-  isolation: isolate;
+body.blog {
+  color: var(--text-1);
 }
 
-.site-nav .page-content {
-  padding: 1rem;
+.blog-center {
+  flex: 1 1 auto;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 1.5rem;
 }
 
-.site-nav bodycopy {
-  font-size: 1rem;
+.blog-coming-soon {
+  font-family: var(--font-stack);
+  font-size: 1.6rem;
   font-weight: 400;
-  color: var(--text-3);
-  line-height: 1.25;
-  letter-spacing: -0.004em;
-}
-
-.site-nav,
-.site-nav .page-layout,
-.site-nav .page-content,
-.site-nav bodycopy { pointer-events: none; }
-.site-nav a { pointer-events: auto; }
-
-.site-nav a {
-  color: var(--text-3);
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-}
-
-.site-nav a u {
-  text-decoration: underline;
-}
-
-.site-nav .window-title {
-  display: inline-block;
-  min-width: 2.4rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
 }
 
 /* -------------------------------------------------------------------------
-   6. Home — desktop icon grid
+   5a. Home — desktop icon grid
    ------------------------------------------------------------------------- */
+body.home {
+  background-color: var(--bg-page);
+}
+
 body.home section.page {
   min-height: var(--viewport-height);
+}
+
+body.home section.page > .page-layout {
+  align-items: center;
+  justify-content: center;
 }
 
 body.home section.page > .page-layout > .page-content {
@@ -246,11 +229,6 @@ body.home section.page > .page-layout > .page-content {
   text-align: center;
   justify-content: center;
   min-height: 100vh;
-}
-
-body.home section.page > .page-layout {
-  align-items: center;
-  justify-content: center;
 }
 
 gallery-justify {
@@ -292,9 +270,16 @@ media-item:first-child img {
   margin: 4px auto;
 }
 
-/* Badge as rounded photo */
+/* Portrait tile, rounded */
 .badge-photo {
   border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 9px 26px rgba(0,0,0,0.15);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+media-item a:hover .badge-photo {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.11), 0 14px 32px rgba(0,0,0,0.19);
 }
 
 media-item figcaption.caption,
@@ -309,11 +294,74 @@ figure {
 }
 
 /* -------------------------------------------------------------------------
+   5. Global nav (fixed top)
+   ------------------------------------------------------------------------- */
+.site-nav {
+  mix-blend-mode: normal;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  z-index: 9999;
+  isolation: isolate;
+}
+
+.site-nav .page-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.site-nav bodycopy {
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--text-2);
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+
+.site-nav,
+.site-nav .page-layout,
+.site-nav .page-content,
+.site-nav bodycopy { pointer-events: none; }
+.site-nav a { pointer-events: auto; }
+
+.site-nav a {
+  color: var(--text-2);
+  font-weight: 400;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Only the name is bold; the rest of the nav stays regular */
+.site-nav a.nav-name {
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.site-nav a u {
+  text-decoration: underline;
+}
+
+.site-nav .window-title {
+  display: inline-block;
+  min-width: 2.4rem;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* -------------------------------------------------------------------------
    7. Work — stacked project slideshow
    ------------------------------------------------------------------------- */
 body.work {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--bg-page);
+  color: var(--text-1);
 }
 
 /* ---------- Work index + dotted-sheet entries ---------- */
@@ -329,14 +377,64 @@ body.work {
   margin: 0 auto;
 }
 
+/* The index column carries long project and course names, so it runs wider on
+   the work page. Scoped to body.work: the About page renders this same markup
+   behind its modal, and that modal's width cap is sized to the 1100px shell. */
+body.work .work-shell {
+  grid-template-columns: minmax(30rem, 39rem) minmax(0, 58rem);
+  /* Both columns are capped, so a wider shell just banks empty space against
+     the right edge. Sized to the columns themselves (39 + 58 + 4 gap + 3
+     padding = 104rem) so the whole block centres instead of hugging left. */
+  max-width: 1170px;
+  column-gap: 4rem;
+  /* more air under the fixed nav — 4.4rem read as crowded */
+  padding-top: 7rem;
+}
+
 .work-index {
   position: sticky;
   top: 3.2rem;
   font-family: var(--font-stack);
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.25;
   letter-spacing: -0.004em;
-  color: #ffffff;
+  color: var(--text-1);
+}
+
+.work-index-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1.25rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.work-index-photo {
+  width: 104px;
+  height: 104px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  /* a touch more lift than the dotted sheets, so the photo sits slightly forward */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 9px 26px rgba(0,0,0,0.15);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+/* Identity block links to About — lift on hover so it reads as clickable */
+.work-index-head:hover .work-index-photo,
+.work-index-head:focus-visible .work-index-photo {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.11), 0 14px 32px rgba(0,0,0,0.19);
+}
+
+.work-index-head:hover .work-index-title,
+.work-index-head:focus-visible .work-index-title {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
 }
 
 .work-index-title {
@@ -345,12 +443,20 @@ body.work {
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.02em;
-  margin: 0 0 1.25rem 0;
+  margin: 0;
 }
 
 .work-index-address,
 .work-index-meta {
   margin: 0 0 1.3rem 0;
+}
+
+.work-index-bio {
+  margin: 0 0 1.5rem 0;
+  max-width: 39rem;
+  font-size: 1.06rem;
+  line-height: 1.45;
+  color: var(--text-3);
 }
 
 .work-index-address a,
@@ -365,21 +471,23 @@ body.work {
   border-collapse: collapse;
   margin: 0 0 1.4rem 0;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: inherit;
 }
 
-.work-index-table thead th {
+.work-index-table thead th,
+.work-index-table .work-index-subhead th {
   font-weight: 700;
   text-align: left;
   padding: 0.2rem 0.4rem 0.2rem 0;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   text-transform: uppercase;
 }
 
-.work-index-table thead th:last-child { text-align: right; padding-right: 0; }
+.work-index-table thead th:last-child,
+.work-index-table .work-index-subhead th:last-child { text-align: right; padding-right: 0; }
 
 .work-index-table tbody tr {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
   position: relative;
 }
 
@@ -391,13 +499,6 @@ body.work {
 
 .work-index-table tbody td:last-child { text-align: right; padding-right: 0; }
 
-.work-index-table .num {
-  font-size: 0.7rem;
-  vertical-align: super;
-  margin-right: 0.45rem;
-  color: #ffffff;
-}
-
 .work-index-table a {
   color: inherit;
   text-decoration: none;
@@ -405,11 +506,16 @@ body.work {
 
 .work-index-table a:hover { text-decoration: underline; }
 
+/* Scrollspy: the project currently in view */
+.work-index-table tbody tr.is-active td {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
 .work-index-footer {
   font-size: 0.9rem;
   line-height: 1.35;
   margin-top: 0.8rem;
-  color: rgba(255,255,255,0.6);
+  color: var(--text-4);
 }
 
 /* Right column: scrollable entries */
@@ -422,25 +528,8 @@ body.work {
 
 .work-entry {
   font-family: var(--font-stack);
-  color: #ffffff;
+  color: var(--text-1);
 }
-
-.work-entry-head {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr auto auto;
-  column-gap: 1.4rem;
-  align-items: baseline;
-  font-size: 0.95rem;
-  padding: 0.5rem 0;
-  border-top: 1px solid rgba(255,255,255,0.6);
-  border-bottom: 1px solid rgba(255,255,255,0.6);
-  letter-spacing: -0.004em;
-}
-
-.work-entry-head .num { font-variant-numeric: tabular-nums; }
-.work-entry-head .title { letter-spacing: 0.02em; }
-.work-entry-head .type,
-.work-entry-head .id { color: #ffffff; }
 
 .work-entry-frame {
   background: transparent;
@@ -450,7 +539,7 @@ body.work {
 
 .work-entry-sheet {
   background-color: #ffffff;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1.4px);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1.4px);
   background-size: 10px 10px;
   background-position: 0 0;
   padding: 1.4rem 1.6rem 1.6rem 1.6rem;
@@ -459,7 +548,7 @@ body.work {
   align-items: stretch;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 18px 48px rgba(0,0,0,0.55);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.09);
 }
 
 .work-entry-sheet img {
@@ -482,10 +571,13 @@ body.work {
 .sheet-doc {
   width: 100%;
   max-width: none;
-  padding: 0.25rem 0.25rem;
+  /* Rules that framed the old header/footer rows, kept as plain dividers */
+  border-top: 1px solid rgba(0,0,0,0.22);
+  border-bottom: 1px solid rgba(0,0,0,0.22);
+  padding: 1rem 0.25rem;
   font-family: var(--font-stack);
   color: #111;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   letter-spacing: -0.004em;
   display: flex;
@@ -524,16 +616,6 @@ body.work {
   line-height: 1.05;
 }
 
-.sheet-doc-sub {
-  font-size: 0.85rem;
-  color: rgba(0,0,0,0.55);
-  letter-spacing: -0.004em;
-  margin: 0 0 1rem 0;
-  padding-bottom: 0.45rem;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  font-family: var(--font-stack);
-}
-
 .sheet-doc-cols {
   columns: 2;
   column-gap: 1.6rem;
@@ -542,18 +624,6 @@ body.work {
 .sheet-doc-cols p {
   margin: 0 0 0.7rem 0;
   break-inside: avoid;
-}
-
-.sheet-doc-footer {
-  margin-top: 1rem;
-  padding-top: 0.45rem;
-  border-top: 1px solid rgba(0,0,0,0.3);
-  font-size: 0.82rem;
-  color: rgba(0,0,0,0.55);
-  display: flex;
-  justify-content: space-between;
-  letter-spacing: -0.004em;
-  font-family: var(--font-stack);
 }
 
 .work-entry-sheet-tag {
@@ -568,7 +638,7 @@ body.work {
 .work-entry-caption {
   margin: 0.9rem 0 0 0;
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
+  color: var(--text-3);
   letter-spacing: -0.004em;
   font-family: var(--font-stack);
 }
@@ -585,7 +655,7 @@ body.work {
 }
 
 .work-entry-links a {
-  color: #8ab4ff;
+  color: #1a4fc4;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -599,6 +669,7 @@ body.work {
     position: static;
   }
   .work-index-title { font-size: 2.4rem; }
+  .work-index-photo { width: 68px; height: 68px; }
 }
 
 .stacked-page {
@@ -1122,7 +1193,7 @@ body.work {
 .doc-page.inverted .doc-brand,
 .doc-page.inverted .doc-aside-links a,
 .doc-page.inverted .doc-body a {
-  color: #8ab4ff;
+  color: #1a4fc4;
 }
 .doc-page.inverted .doc-figure img {
   border-color: rgba(255,255,255,0.2);
@@ -1226,7 +1297,7 @@ body.work {
   bottom: 0;
   left: 0;
   right: 0;
-  mix-blend-mode: difference;
+  mix-blend-mode: normal;
   z-index: 3;
 }
 
@@ -1252,32 +1323,55 @@ body.work {
 /* -------------------------------------------------------------------------
    8. About — macOS frosted window
    ------------------------------------------------------------------------- */
-body.about {
-  background-color: var(--bg-dark);
-  position: relative;
+/* About page runs a little larger than the work page. Scaling the root size
+   scales every rem together — body copy, dates, tags and the layout caps —
+   rather than only the paragraph text. */
+html:has(body.about) {
+  font-size: 12.4px;
 }
 
-/* Home icon layer behind the About window */
+body.about {
+  background-color: var(--bg-page);
+  position: relative;
+  /* Muted tiers lifted a little on this page only, so dates and course lines
+     stay legible against the frosted pane. */
+  --text-3: rgba(255, 255, 255, 0.74);
+  --text-4: rgba(255, 255, 255, 0.62);
+}
+
+/* Home icon grid rendered behind the About window */
 body.about section.page.home-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   min-height: 100vh;
   pointer-events: none;
+  color: var(--text-1);
 }
+
 body.about section.page.home-bg > .page-layout {
   flex-grow: 1;
   align-items: center;
   justify-content: center;
 }
+
 body.about section.page.home-bg > .page-layout > .page-content {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
 }
+
 body.about section.page.home-bg gallery-justify {
   justify-content: center;
-  opacity: 1;
+}
+
+/* Scrim kept thin: a heavy one flattens the backdrop and the blur has nothing
+   to work with. */
+body.about section.page.home-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.14);
 }
 
 body.about section.page.about-modal {
@@ -1288,24 +1382,36 @@ body.about section.page.about-modal {
 }
 
 body.about section.page.about-modal > .page-layout {
-  max-width: 45%;
-  padding: 5rem 3rem;
-  align-items: center;
+  max-width: 100%;
+  padding: 0;
+  align-items: stretch;
   justify-content: center;
   display: flex;
-  margin: 0 auto;
+  margin: 0;
 }
 
 body.about .window {
-  background-color: rgba(30, 30, 30, 0.69);
-  border: 0.5px solid rgba(255, 255, 255, 0.15);
-  border-radius: 1.6rem;
-  box-shadow: 0.4rem 0.4rem 2rem 0 rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(2rem);
-  -webkit-backdrop-filter: blur(2rem);
-  width: 45.5rem;
-  max-width: 100%;
-  padding: 0.8rem 1rem 1rem;
+  background-color: rgba(32, 32, 34, 0.40);
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 24px 60px rgba(0,0,0,0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(3.6rem) saturate(200%) brightness(1.25);
+  -webkit-backdrop-filter: blur(3.6rem) saturate(200%) brightness(1.25);
+  flex: 0 1 auto;
+  width: 100%;
+  /* Capped so rows do not stretch across a wide display: at full screen the
+     org/date pair was landing at opposite edges of the viewport. The floor is
+     set by the index behind it — .work-shell is a centred 1100px block, so the
+     window must clear ~1066px to cover the sidebar's left edge at any viewport
+     width. 96rem (1080px) covers it with a little margin. */
+  max-width: 96rem;
+  min-height: calc(100vh - 5.5rem);
+  margin: 4rem auto 1.5rem;
+  /* Even, generous side gutters: pulls the glyph rail in from the left edge and
+     the dates in from the right, so the two columns sit closer together.
+     clamp keeps it from crowding on narrower windows. */
+  padding: 1.4rem clamp(1.5rem, 5vw, 6rem) 4rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -1314,7 +1420,7 @@ body.about .window {
 body.about .window bodycopy {
   display: block;
   width: 100%;
-  font-size: 1.18rem;
+  font-size: 1.15rem;
 }
 
 body.about .traffic-lights {
@@ -1356,7 +1462,7 @@ body.about .window-title-row {
   align-items: center;
   gap: 0.4rem;
   color: var(--text-1);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 400;
 }
 
@@ -1372,17 +1478,40 @@ body.about column-unit:not(:last-child) {
   margin-right: 10px;
 }
 
+/* The entry column is capped to the hero's summary width and centred, so its
+   left and right edges line up with the portrait and the intro paragraph. */
+body.about .window > bodycopy > column-set {
+  position: relative;
+  max-width: 62rem;
+  margin: 10px auto 0;
+}
+
+/* The section label is lifted out of the flow into the left gutter. In flow it
+   consumed 13.8rem at the start of every row, which pushed the entries right of
+   centre no matter how the block itself was aligned. */
+@media (min-width: 900px) {
+  body.about .window > bodycopy > column-set > column-unit:first-child {
+    position: absolute;
+    top: 0;
+    right: calc(100% + 1.1rem);
+    width: 13.8rem;
+    margin-right: 0;
+  }
+}
+
 /* Only top-level column-sets inside the window get the fixed-label layout */
 body.about .window > bodycopy > column-set > column-unit:first-child {
   width: 13.8rem;
   flex-grow: 0;
   flex-shrink: 0;
   color: var(--text-1);
+  text-align: right;
+  padding-right: 1.1rem;
 }
 
 body.about .window > bodycopy > column-set > column-unit:last-child {
   flex-grow: 1;
-  color: var(--text-3);
+  color: var(--text-2);
   min-width: 0;
 }
 
@@ -1393,51 +1522,309 @@ body.about column-unit column-set > column-unit {
   color: var(--text-3);
 }
 
+/* Hero: portrait, name, subtitle, summary — centred, after About This Mac */
+body.about .about-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.2rem 0 2.6rem;
+}
+
+body.about .about-portrait {
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1.7rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 9px 26px rgba(0,0,0,0.15);
+}
+
+body.about .about-name {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+body.about .about-subtitle {
+  margin: 0.35rem 0 0;
+  font-size: 1.05rem;
+  color: var(--text-4);
+}
+
+body.about .about-summary {
+  margin: 1.5rem 0 0;
+  /* Matches the entry column cap, so both share the same left and right edges. */
+  max-width: 62rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+/* Push button, bottom-centred */
+body.about .about-actions {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.8rem;
+}
+
+body.about .about-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-0.3rem);
+  z-index: 20;
+  min-width: 12rem;
+  display: flex;
+  flex-direction: column;
+  /* vertical padding only, so separators can reach both edges */
+  padding: 0.3rem 0;
+  background-color: rgba(34, 34, 36, 0.88);
+  backdrop-filter: blur(1.6rem) saturate(180%);
+  -webkit-backdrop-filter: blur(1.6rem) saturate(180%);
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 8px 28px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+body.about .about-menu[hidden] { display: none; }
+
+body.about .about-menu.is-open {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+body.about .about-menu a {
+  position: relative;
+  margin: 0 0.3rem;
+  padding: 0.28rem 0.85rem;
+  /* highlight is an inset rounded rect, as in macOS */
+  border-radius: 0.35rem;
+  color: var(--text-1);
+  text-decoration: none;
+  font-size: 1.02rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Separator: inset to the text column, square ends */
+body.about .about-menu a + a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0.85rem;
+  right: 0.85rem;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+body.about .about-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+body.about .about-button {
+  display: inline-block;
+  padding: 0.45rem 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: 0.45rem;
+  background-color: rgba(255, 255, 255, 0.72);
+  color: var(--text-1);
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  transition: background-color 0.12s ease;
+}
+
+body.about .about-button:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
 body.about .section-label {
   color: var(--text-3);
   font-weight: 400;
 }
 
 /* -------------------------------------------------------------------------
-   8b. About — timeline refinements
+   8b. About — timeline: glyph rail + spine + structured entry
    ------------------------------------------------------------------------- */
+/* Entry = [glyph + year rail] | [spine] | [structured body] */
 body.about .timeline-entry {
-  border-top: 1px solid rgba(255,255,255,0.22);
-  padding-top: 1rem;
-  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  column-gap: 0;
 }
 
-body.about .timeline-entry:first-child {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 0;
+body.about .timeline-rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.15rem;
 }
 
-body.about .timeline-date {
+/* One mark per domain, repeated down the page so the through-line is visible */
+body.about .domain-glyph {
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--text-3);
+  flex: 0 0 auto;
+}
+
+/* The spine: a continuous rule, since entries stack with no gap between them */
+body.about .timeline-body {
+  border-left: 1px solid rgba(255,255,255,0.20);
+  padding: 0 0 1.8rem 1.3rem;
+  min-width: 0;
+}
+
+body.about .timeline-entry:last-child .timeline-body {
+  padding-bottom: 0.2rem;
+}
+
+body.about .timeline-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 0 0.55rem;
+}
+
+/* Place holds the right of the org line; dates hold the right of the role line. */
+body.about .timeline-head .timeline-place,
+body.about .timeline-head .timeline-dates,
+body.about .timeline-subhead .timeline-dates {
+  margin-left: auto;
+  padding-left: 1rem;
+}
+
+/* Role and its dates share a row */
+body.about .timeline-subhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.55rem;
+}
+
+body.about .timeline-subhead .timeline-role {
+  display: inline;
+}
+
+/* Location matches the date treatment */
+body.about .timeline-place {
   color: var(--text-4);
-  font-size: 0.85rem;
-  line-height: 1.4;
-  letter-spacing: 0;
-  margin-bottom: 0.2rem;
+  font-size: 0.86rem;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 
-body.about .timeline-role {
+/* Organisation — primary line */
+body.about .timeline-org {
+  display: block;
   color: var(--text-1);
   font-weight: 600;
 }
 
-body.about .timeline-org {
-  color: var(--text-3);
+/* Role — secondary line */
+body.about .timeline-role {
+  display: block;
+  color: var(--text-2);
   font-weight: 400;
 }
 
-body.about .timeline-meta {
+/* Dates, place and outcome share one muted tier */
+body.about .timeline-dates {
+  flex: 0 0 auto;
   color: var(--text-4);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* Nested roles: promotions within one org, or courses within one appointment */
+body.about .timeline-roles {
+  list-style: none;
+  margin: 0.25rem 0 0 0;
+  padding: 0 0 0 0.85rem;
+  border-left: 1px solid rgba(255,255,255,0.18);
+}
+
+body.about .timeline-roles li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Nested roles keep their detail (courses, lab) on the same line and wrap only
+   when they run out of room, rather than always stacking. */
+body.about .timeline-roles--stacked li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 0 0.5rem;
+}
+
+body.about .timeline-roles--stacked li + li {
+  margin-top: 0.4rem;
+}
+
+/* The detail after the divider reads as a continuation of the role, so it takes
+   the role's colour and size rather than the muted tier. */
+body.about .timeline-roles--stacked .timeline-courses {
+  margin-top: 0;
+  color: var(--text-2);
+  font-size: inherit;
+}
+
+body.about .timeline-roles--stacked .timeline-courses::before {
+  content: "|";
+  margin-right: 0.5rem;
+  color: var(--text-4);
+}
+
+body.about .timeline-roles .timeline-dates {
   font-size: 0.88rem;
-  margin-top: 0.2rem;
+  letter-spacing: 0.05em;
+  color: var(--text-4);
+}
+
+body.about .timeline-courses {
+  margin-top: 0.3rem;
+  color: var(--text-4);
+  font-size: 1rem;
   line-height: 1.4;
+}
+
+body.about .timeline-formerly {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-4);
+}
+
+
+body.about .timeline-org a,
+body.about .timeline-role a,
+body.about .timeline-courses a {
+  color: inherit;
+}
+
+@media (max-width: 680px) {
+  body.about .timeline-entry { grid-template-columns: 2.5rem minmax(0, 1fr); }
+  body.about .timeline-body { padding-left: 1rem; }
+  body.about .timeline-head { flex-direction: column; gap: 0.1rem; }
 }
 
 /* -------------------------------------------------------------------------
@@ -1454,11 +1841,53 @@ html.mobile {
 @media (max-width: 720px) {
   body.about .page-layout {
     max-width: 100%;
-    padding: 5rem 1rem;
+    padding: 0;
   }
   body.about .window {
-    width: 100%;
+    width: auto;
+    margin: 3.5rem 0.75rem 0.75rem;
+    min-height: calc(100vh - 4.25rem);
+    padding: 1.2rem 1.25rem 3rem;
   }
+}
+
+/* -------------------------------------------------------------------------
+   9b. Link preview — destination shown in the corner on hover, like a
+       browser status bar. Injected by js/site.js.
+   ------------------------------------------------------------------------- */
+.link-preview {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  max-width: min(52ch, 72vw);
+  padding: 0.35rem 0.8rem 0.4rem;
+  background-color: rgba(20, 20, 21, 0.97);
+  color: var(--text-2);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-top-right-radius: 0.4rem;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-stack);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(0.35rem);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.link-preview.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Touch devices have no hover state to report */
+@media (hover: none) {
+  .link-preview { display: none; }
 }
 
 /* -------------------------------------------------------------------------
@@ -1502,10 +1931,10 @@ sup { position: relative; vertical-align: baseline; top: -0.4em; }
   gap: 1.2rem;
   margin: 4.5rem 0 1.5rem 0;
   padding: 0.5rem 0 0.6rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   font-family: var(--font-stack);
-  color: #ffffff;
+  color: var(--text-1);
   font-size: 1rem;
   letter-spacing: -0.01em;
 }
@@ -1533,14 +1962,13 @@ sup { position: relative; vertical-align: baseline; top: -0.4em; }
   flex-wrap: wrap;
   gap: 0.5rem 1.2rem;
   margin: 0.5rem 0 1.1rem 0;
-  padding-top: 0.6rem;
-  border-top: 1px solid rgba(0,0,0,0.12);
+  padding-top: 0;
 }
 
 .sheet-doc-links a {
   color: #1a4dff;
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: -0.004em;
 }
@@ -1557,7 +1985,7 @@ sup { position: relative; vertical-align: baseline; top: -0.4em; }
   border-radius: 0;
   padding: 0.65rem 0.9rem;
   margin: 0 0 0.9rem 0;
-  font-size: 0.9rem;
+  font-size: 1.02rem;
   line-height: 1.45;
   color: #222;
 }
@@ -1584,13 +2012,13 @@ sup { position: relative; vertical-align: baseline; top: -0.4em; }
 
 .sheet-doc-img figcaption {
   margin-top: 0.35rem;
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   color: rgba(0,0,0,0.5);
   line-height: 1.35;
   font-style: italic;
 }
 
-.work-index-table thead + tbody + thead tr th {
+.work-index-table .work-index-subhead th {
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
 }
