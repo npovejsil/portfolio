@@ -261,6 +261,14 @@ media-item img {
   height: 100px;
   object-fit: cover;
   display: block;
+  /* overshooting curve gives the lift a slight bounce */
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Every linked icon lifts on hover; .no-link copies (the About backdrop) do not */
+media-item a:hover img,
+media-item a:focus-visible img {
+  transform: translateY(-6px);
 }
 
 /* Work icon: ever so slightly smaller */
@@ -274,11 +282,12 @@ media-item:first-child img {
 .badge-photo {
   border-radius: 18px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 9px 26px rgba(0,0,0,0.15);
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.22s ease;
 }
 
-media-item a:hover .badge-photo {
-  transform: translateY(-3px);
+media-item a:hover .badge-photo,
+media-item a:focus-visible .badge-photo {
   box-shadow: 0 2px 5px rgba(0,0,0,0.11), 0 14px 32px rgba(0,0,0,0.19);
 }
 
@@ -393,7 +402,9 @@ body.work .work-shell {
 
 .work-index {
   position: sticky;
-  top: 3.2rem;
+  /* Clears the fixed nav: ~1rem padding top and bottom plus a 1.45rem line
+     puts its underside near 3.8rem, so this leaves a real gap under it. */
+  top: 5.6rem;
   font-family: var(--font-stack);
   font-size: 1.15rem;
   line-height: 1.25;
@@ -2021,4 +2032,16 @@ sup { position: relative; vertical-align: baseline; top: -0.4em; }
 .work-index-table .work-index-subhead th {
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* Icon lift is decorative — hold still if the viewer asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  media-item img,
+  .badge-photo {
+    transition: none;
+  }
+  media-item a:hover img,
+  media-item a:focus-visible img {
+    transform: none;
+  }
 }
