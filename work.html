@@ -144,29 +144,11 @@
                 <a href="https://medium.com/berkeleyischool/un-x-google-data-commons-hackathon-key-takeaways-verimap-project-highlights-4770b220c23d" target="_blank" rel="noopener">↗ Project write-up — Medium</a>
               </div>
               <div class="sheet-doc-body">
-                <div class="sheet-callout">
-                  <strong>UN x Google Data Commons Builders Day</strong> — selected to build on and present the UN System Data Commons at Google NYC during UN General Assembly week, September 2026. Team of five UC Berkeley MIDS alumni.
-                </div>
-                <p><em>A UN SDG cross-agency dashboard.</em> More than 20 UN agencies publish Sustainable Development Goal data to the new UN System Data Commons, but they report it at different geographic levels, time spans, and units. VeriMap is a reusable recipe for retrieving, validating, and joining indicators across agencies and the World Bank, with no new code per indicator. We demoed it on renewable energy access and affordability.</p>
+                <p><em>UN x Google Data Commons Builders Day, 2026.</em> A reusable recipe for retrieving, validating, and joining SDG indicators across UN agencies, with a dashboard on top.</p>
                 <figure class="sheet-doc-img">
-                  <img src="assets/verimap-map.png" alt="VeriMap world choropleth of clean cooking fuel access by country, with a hover tooltip showing Angola at 56 percent and a five-bin quantile legend.">
-                  <figcaption>Choropleth of any SDG indicator by country, binned by quantile, with exact values on hover. Missing data is its own grey category.</figcaption>
+                  <img src="assets/verimap-map.png" alt="VeriMap world choropleth of clean cooking fuel access by country, with a hover tooltip showing Angola at 56 percent.">
                 </figure>
-                <p>The tool is built in four layers: a <strong>catalog</strong> of indicators and sources, a <strong>recipe</strong> that pulls, validates, and joins them, <strong>analytics</strong> for progress toward targets, trends, and rankings, and the <strong>dashboard</strong>. Adding an indicator is a catalog entry, not a rebuild. It also runs in six UN languages.</p>
-                <figure class="sheet-doc-img">
-                  <img src="assets/verimap-trends.png" alt="VeriMap Trends tab charting clean cooking fuel access from 2000 to 2024 for India, Indonesia, Cambodia, Vietnam and Ghana, with fitted trend lines, a 2030 target line, and flagged anomalies.">
-                  <figcaption>Fitted trend lines against the 2030 target, with unusual year-over-year movements flagged on the chart.</figcaption>
-                </figure>
-                <figure class="sheet-doc-img">
-                  <img src="assets/verimap-anomalies.png" alt="Table of unusual movements detected across all countries, including sudden jumps, countries breaking from the pack, and countries moving the wrong direction.">
-                  <figcaption>Anomaly scan across every country, not just the ones charted: sudden jumps, breaks from the pack, and reversals.</figcaption>
-                </figure>
-                <p>A successful API response doesn't mean the data is right. Every pull is re-checked against what the catalog expects: units, value range, country coverage, and place IDs that will actually join to the map. Each figure links to its upstream producer, and disagreements between agencies are shown rather than hidden.</p>
-                <figure class="sheet-doc-img">
-                  <img src="assets/verimap-sources.png" alt="VeriMap Sources tab summarizing validation results: 5 pulls checking out, 8 with a caveat, 2 not usable, followed by a per-indicator table of status, producer, country count, most recent year, and response time.">
-                  <figcaption>Source traceability: every pull's validation status, true upstream producer, and coverage.</figcaption>
-                </figure>
-                <p><strong>Tags:</strong> Python · Streamlit · GIS · Data Validation · MCP · Data Engineering</p>
+                <p><strong>Tags:</strong> Python · Streamlit · GIS · Data Validation</p>
               </div>
             </div>
           </div>
