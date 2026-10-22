@@ -673,8 +673,11 @@ body.work .work-shell {
 }
 
 @media (max-width: 720px) {
-  .work-shell {
-    grid-template-columns: 1fr;
+  /* body.work is listed too: its wider two-column rule above is more specific
+     than .work-shell alone and would otherwise survive at phone width. */
+  .work-shell,
+  body.work .work-shell {
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
   .work-index {
