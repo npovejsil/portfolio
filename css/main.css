@@ -610,7 +610,8 @@ body.work .work-shell {
   margin: 1.2rem 0;
 }
 
-.sheet-doc-body figure img {
+.sheet-doc-body figure img,
+.sheet-doc-body figure video {
   display: block;
   width: 100%;
   height: auto;
@@ -2014,7 +2015,8 @@ sup { position: relative; vertical-align: baseline; top: -0.4em; }
   margin: 1rem 0;
 }
 
-.sheet-doc-img img {
+.sheet-doc-img img,
+.sheet-doc-img video {
   display: block;
   width: 100%;
   height: auto;
