@@ -146,7 +146,74 @@
     });
   }
 
+  /* ---------------------------------------------------------------
+     4. Blog — render POSTS (js/posts.js) as thumbnail cards that
+        link out to Medium, Substack, etc. Blog page only.
+     --------------------------------------------------------------- */
+  var SOURCES = { 'medium.com': 'Medium', 'substack.com': 'Substack' };
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  function sourceName(post) {
+    if (post.source) return post.source;
+    var host;
+    try { host = new URL(post.url).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
+    for (var domain in SOURCES) {
+      if (host === domain || host.slice(-domain.length - 1) === '.' + domain) return SOURCES[domain];
+    }
+    return host;
+  }
+
+  function formatDate(iso) {
+    var p = (iso || '').split('-');
+    if (p.length !== 3) return iso || '';
+    return MONTHS[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0];
+  }
+
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  function blogPosts() {
+    var grid = document.querySelector('.blog-grid');
+    if (!grid) return;
+
+    var posts = (window.POSTS || []).slice().sort(function (a, b) {
+      return (b.date || '').localeCompare(a.date || '');
+    });
+    if (!posts.length) {
+      grid.appendChild(el('p', 'blog-empty', 'Coming Soon'));
+      return;
+    }
+
+    posts.forEach(function (post) {
+      var card = el('a', 'blog-card');
+      card.href = post.url;
+      card.target = '_blank';
+      card.rel = 'noopener';
+
+      var thumb = el('div', 'blog-card-thumb');
+      if (post.image) {
+        var img = el('img');
+        img.src = post.image;
+        img.alt = '';
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+      }
+      card.appendChild(thumb);
+
+      var meta = [sourceName(post), formatDate(post.date)].filter(Boolean).join(' · ');
+      card.appendChild(el('p', 'blog-card-meta', '↗ ' + meta));
+      card.appendChild(el('h2', 'blog-card-title', post.title));
+      grid.appendChild(card);
+    });
+  }
+
   scrollspy();
   linkPreview();
   moreInfoMenu();
+  blogPosts();
 })();
